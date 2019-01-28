@@ -12,6 +12,8 @@ def main():
     q_table = np.random.rand(num_states, num_actions)
 
     # instanciar
+    # num_rows x num_cols debe ser igual a la longitud de q_table
+    # la coordenada (0,0) es q_table[0], la (1,0) es q_table[1]
     plotter = PolicyPlotter(q_table, num_rows=4, num_cols=5)
 
     # se pueden obtener summaries (max, min, o avg)

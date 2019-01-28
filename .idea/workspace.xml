@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe70031a-6a93-4091-adda-1f66564525e9" name="Default Changelist" comment="" />
+    <list default="true" id="fe70031a-6a93-4091-adda-1f66564525e9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +17,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="32" selection-start-line="32" selection-end-line="32" />
+                <state relative-caret-position="225">
+                  <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -36,8 +38,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/plotters/plotter.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="922">
-                  <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+                <state relative-caret-position="740">
+                  <caret line="82" selection-start-line="82" selection-end-line="82" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -73,6 +75,9 @@
       <find>print</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -88,6 +93,7 @@
     <option name="width" value="1356" />
     <option name="height" value="311" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -100,11 +106,6 @@
             <path>
               <item name="policy_plotter" type="b2602c69:ProjectViewProjectNode" />
               <item name="policy_plotter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="policy_plotter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="policy_plotter" type="462c0819:PsiDirectoryNode" />
-              <item name="plotters" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -142,12 +143,12 @@
       <option name="presentableId" value="Default" />
       <updated>1548654706917</updated>
       <workItem from="1548654712990" duration="4886000" />
-      <workItem from="1548701970807" duration="9049000" />
+      <workItem from="1548701970807" duration="9429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13935000" />
+    <option name="totallyTimeSpent" value="14315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="25" width="1920" height="1055" extended-state="6" />
@@ -201,8 +202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="225">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
