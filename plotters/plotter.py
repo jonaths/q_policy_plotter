@@ -59,7 +59,7 @@ class PolicyPlotter:
         summary_grid = summary.reshape((self.num_cols, self.num_rows))
         summary_grid = np.transpose(summary_grid)
         im, cbar = heatmap(summary_grid, range(self.num_rows), range(self.num_cols))
-        plt.ylim(plt.ylim()[::-1])
+        # plt.ylim(plt.ylim()[::-1])
 
         return im, cbar
 
@@ -78,7 +78,7 @@ class PolicyPlotter:
             indices_grid[remainder][quotient] = indices[i]
 
         im, cbar = heatmap(summary_grid, range(self.num_rows), range(self.num_cols))
-        plt.ylim(plt.ylim()[::-1])
+        # plt.ylim(plt.ylim()[::-1])
         texts = annotate_heatmap(im, adds=indices_grid)
 
         return im, cbar, texts
