@@ -64,6 +64,7 @@ class PolicyPlotter:
         return im, cbar
 
     def build_policy(self, labels=None):
+        print("XXX")
         if self.num_cols * self.num_rows != self.table.shape[0]:
             raise Exception('Table shape 0 and num_rows x num_cols do not match. ')
         summary, indices = self.get_policy(labels)
