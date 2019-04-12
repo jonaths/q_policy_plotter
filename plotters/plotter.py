@@ -44,7 +44,7 @@ class PolicyPlotter:
             indices = temp
         return list(summary), indices
 
-    def build_heatmap(self, op='max'):
+    def build_heatmap(self, op='max', index=None, annotate=True, cmap='Blues'):
         """
         Crea un heatmap con una operacion. Por default max. La esquina inferior
         derecha es el elemento cero, (1,0)=1, (2,0)=2, (3,0)=3.
@@ -55,16 +55,22 @@ class PolicyPlotter:
         """
         if self.num_cols * self.num_rows != self.table.shape[0]:
             raise Exception('Table shape 0 and num_rows x num_cols do not match. ')
-        summary = self.summarize(op)
+        if index is not None:
+            # si se pasa un index recupera la accion de ese index
+            summary = self.table[:, index]
+        else:    
+            # de lo contrario calcula el summary segun op
+            summary = self.summarize(op)
         summary_grid = summary.reshape((self.num_cols, self.num_rows))
         summary_grid = np.transpose(summary_grid)
-        im, cbar = heatmap(summary_grid, range(self.num_rows), range(self.num_cols))
+        im, cbar = heatmap(summary_grid, range(self.num_rows), range(self.num_cols), cmap=cmap)
+        if annotate:
+	        annotate_heatmap(im)
         # plt.ylim(plt.ylim()[::-1])
 
         return im, cbar
 
-    def build_policy(self, labels=None):
-        print("XXX")
+    def build_policy(self, labels=None, show_numbers=True, cmap='Blues'):
         if self.num_cols * self.num_rows != self.table.shape[0]:
             raise Exception('Table shape 0 and num_rows x num_cols do not match. ')
         summary, indices = self.get_policy(labels)
@@ -78,8 +84,8 @@ class PolicyPlotter:
             remainder = i % self.num_rows
             indices_grid[remainder][quotient] = indices[i]
 
-        im, cbar = heatmap(summary_grid, range(self.num_rows), range(self.num_cols))
+        im, cbar = heatmap(summary_grid, range(self.num_rows), range(self.num_cols), cmap=cmap)
         # plt.ylim(plt.ylim()[::-1])
-        texts = annotate_heatmap(im, adds=indices_grid)
+        texts = annotate_heatmap(im, adds=indices_grid, show_numbers=show_numbers)
 
         return im, cbar, texts

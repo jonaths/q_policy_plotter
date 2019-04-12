@@ -4,7 +4,7 @@ import matplotlib
 
 
 def heatmap(data, row_labels, col_labels, ax=None,
-            cbar_kw={}, cbarlabel="", **kwargs):
+            cbar_kw={}, cbarlabel="", cmap='Greens', **kwargs):
     """
     Create a heatmap from a numpy array and two lists of labels.
 
@@ -28,7 +28,7 @@ def heatmap(data, row_labels, col_labels, ax=None,
         ax = plt.gca()
 
     # Plot the heatmap
-    im = ax.imshow(data, cmap='Greens', **kwargs)
+    im = ax.imshow(data, cmap=cmap, **kwargs)
 
     # Create colorbar
     cbar = ax.figure.colorbar(im, ax=ax, **cbar_kw)
@@ -63,7 +63,7 @@ def heatmap(data, row_labels, col_labels, ax=None,
 
 def annotate_heatmap(im, data=None, adds=None, valfmt="{x:.2f}",
                      textcolors=["black", "white"],
-                     threshold=None, **textkw):
+                     threshold=None, show_numbers=True, **textkw):
     """
     A function to annotate a heatmap.
 
@@ -111,7 +111,10 @@ def annotate_heatmap(im, data=None, adds=None, valfmt="{x:.2f}",
         for j in range(data.shape[1]):
             kw.update(color=textcolors[im.norm(data[i, j]) > threshold])
             if adds is not None:
-                text = im.axes.text(j, i, str(valfmt(data[i, j], None))+' ('+adds[i][j]+')', **kw)
+                if show_numbers:
+                    text = im.axes.text(j, i, str(valfmt(data[i, j], None))+' ('+adds[i][j]+')', **kw)
+                else:
+                    text = im.axes.text(j, i, ' ('+adds[i][j]+')', **kw)
             else:
                 text = im.axes.text(j, i, str(valfmt(data[i, j], None)), **kw)
             texts.append(text)

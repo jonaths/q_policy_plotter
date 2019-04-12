@@ -10,6 +10,8 @@ def main():
 
     # la entrada es una tabla con los estados en las filas y  las acciones en las columnas
     q_table = np.random.rand(num_states, num_actions)
+    print("INFO: q_table")
+    print(q_table)
 
     # instanciar
     # num_rows x num_cols debe ser igual a la longitud de q_table
@@ -31,7 +33,10 @@ def main():
 
     # tambien se puede generar el mapa de politicas
     fig, ax = plt.subplots()
-    im, cbar, texts = plotter.build_policy(labels=['a', 'b', 'c', 'd'])
+    
+    # im, cbar, texts = plotter.build_policy(labels=['a', 'b', 'c', 'd'], show_numbers=False, cmap='Reds')
+    im, cbar = plotter.build_heatmap(index=0)
+    
     fig.tight_layout()
     plt.show()
 
