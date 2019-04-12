@@ -90,7 +90,7 @@ class LinesPlotter:
         """
         Media movil
         :param data: la serie de datos
-        :param window_size: el tamaño de la ventana movil
+        :param window_size: el tamano de la ventana movil
         :return:
         """
         data = np.pad(data, (window_size // 2, window_size - 1 - window_size // 2), mode='edge')
