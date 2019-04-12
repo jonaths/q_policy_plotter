@@ -60,26 +60,46 @@ class LinesPlotter:
             raise Exception('Invalid var_name. ')
         return data_pickled
 
-    def get_var_line_plot(self, var_name_list, func, linestyle=None, window_size=20, fig=None, ax=None):
+    def get_var_line_plot(self, var_name_list, func, linestyle=None, window_size=20, fig=None,
+                          ax=None, label=None):
+        """
+        Genera una grafica lineal con los datos de los experimentos procesados con alguna funcion
+        summary,
+        :param label:
+        :param var_name_list: las variables del experimento a recuperar.
+        :param func: la funcion summary
+        :param linestyle: el estilo de linea de la serie
+        :param window_size: tamano de la ventana
+        :param fig: on objeto figura o lo crea
+        :param ax: un objeto ax o lo crea
+        :return:
+        """
         if fig is None and ax is None:
             fig, ax = plt.subplots()
         self.calculate_summary(func)
-        for var in var_name_list:
-            data = self.get_var_from_summary(var)[0]
+        for var_name in var_name_list:
+            data = self.get_var_from_summary(var_name)[0]
 
             data = np.pad(data, (window_size // 2, window_size - 1 - window_size // 2), mode='edge')
             data = np.convolve(data, np.ones((window_size,)) / window_size, mode='valid')
 
-            if(linestyle is None):
-                ax.plot(range(self.num_episodes), data, label=var)
+            label = var_name if label is None else label
+
+            if linestyle is None:
+                ax.plot(range(self.num_episodes), data, label=label)
             else:
-                ax.plot(range(self.num_episodes), data, label=var, linestyle=linestyle)
+                ax.plot(range(self.num_episodes), data, label=label, linestyle=linestyle)
 
         return fig, ax
 
-    def get_var_cummulative_matching_plot(self, var_name, matching_list, linestyle=None, fig=None, ax=None, label=None):
+    def get_var_cummulative_matching_plot(self, var_name, matching_list, linestyle=None, fig=None,
+                                          ax=None, label=None):
         """
         Recibe matching_list y verifica los valores en var_name de data. Genera un acumulado.
+        :param label:
+        :param ax:
+        :param fig:
+        :param linestyle:
         :param var_name: el nombre de la variable a contar
         :param matching_list: los valores que cuentan como 1
         :return:
@@ -96,9 +116,9 @@ class LinesPlotter:
         # promedio de todos los experimentos
         test = np.average(test, axis=0)
 
-	label = var_name if label is None else label
+        label = var_name if label is None else label
 
-        if (linestyle is None):
+        if linestyle is None:
             ax.plot(range(self.num_episodes), test, label=label)
         else:
             ax.plot(range(self.num_episodes), test, label=label, linestyle=linestyle)
@@ -161,7 +181,7 @@ class LinesPlotter:
         if var_name_list is None:
             var_name_list = [str(i) for i in range(data.shape[2])]
         elif len(var_name_list) != data.shape[2]:
-            raise Exception('Invalid var_name_list. Must have len'+str(data.shape[2]))
+            raise Exception('Invalid var_name_list. Must have len' + str(data.shape[2]))
 
         plotter = LinesPlotter(var_name_list, num_experiments, num_episodes)
         plotter.data = data
