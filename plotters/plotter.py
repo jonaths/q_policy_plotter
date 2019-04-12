@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from helpers import heatmap,annotate_heatmap
+from helpers import heatmap, annotate_heatmap
 import sys
 
 
@@ -58,14 +58,14 @@ class PolicyPlotter:
         if index is not None:
             # si se pasa un index recupera la accion de ese index
             summary = self.table[:, index]
-        else:    
+        else:
             # de lo contrario calcula el summary segun op
             summary = self.summarize(op)
         summary_grid = summary.reshape((self.num_cols, self.num_rows))
         summary_grid = np.transpose(summary_grid)
         im, cbar = heatmap(summary_grid, range(self.num_rows), range(self.num_cols), cmap=cmap)
         if annotate:
-	        annotate_heatmap(im)
+            annotate_heatmap(im)
         # plt.ylim(plt.ylim()[::-1])
 
         return im, cbar

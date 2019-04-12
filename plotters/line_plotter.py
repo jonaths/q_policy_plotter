@@ -12,6 +12,11 @@ class LinesPlotter:
         self.num_experiments = num_experiments
         self.data = np.zeros(shape=(num_experiments, num_episodes, len(var_names_list)))
         self.summary = None
+        self.std_dev = None
+        # avg + 1/2 std_dev
+        self.std_dev_top = None
+        # avg - 1/2 std_dev
+        self.std_dev_bottom = None
 
     def add_episode_to_experiment(self, experiment, episode, var_values):
         """
@@ -33,8 +38,13 @@ class LinesPlotter:
         :return:
         """
         temp = np.transpose(self.data, (2, 1, 0))
+        print(temp)
         if func == 'average':
             self.summary = np.average(temp, axis=2)
+            self.std_dev = np.std(temp, axis=2)
+            half = self.std_dev / 2
+            self.std_dev_top = self.summary + half
+            self.std_dev_bottom = self.summary - half
         elif func == 'max':
             self.summary = np.max(temp, axis=2)
         else:
@@ -43,10 +53,25 @@ class LinesPlotter:
         return self
 
     def get_var_from_summary(self, var_name):
+        """
+        Wrapper para get_var_from_array que recupera la variable de self.summary
+        :param var_name:
+        :return:
+        """
+        return self.get_var_from_array(var_name, self.summary)
+
+    def get_var_from_array(self, var_name, array):
+        """
+        Usa los nombres creados en el constructor para recuperar los valores
+        de una variable
+        :param var_name: el nombre de la variable
+        :param array:
+        :return:
+        """
         # Si se pasa un valor regresa unicamente ese elemento
         if var_name in self.var_names_list:
             index = self.var_names_list.index(var_name)
-            summary_pickled = np.expand_dims(self.summary[index], axis=0)
+            summary_pickled = np.expand_dims(array[index], axis=0)
         else:
             raise Exception('Invalid var_name. ')
         return summary_pickled
@@ -59,6 +84,18 @@ class LinesPlotter:
         else:
             raise Exception('Invalid var_name. ')
         return data_pickled
+
+    @staticmethod
+    def convolve(data, window_size):
+        """
+        Media movil
+        :param data: la serie de datos
+        :param window_size: el tamaño de la ventana movil
+        :return:
+        """
+        data = np.pad(data, (window_size // 2, window_size - 1 - window_size // 2), mode='edge')
+        data = np.convolve(data, np.ones((window_size,)) / window_size, mode='valid')
+        return data
 
     def get_var_line_plot(self, var_name_list, func, linestyle=None, window_size=20, fig=None,
                           ax=None, label=None):
@@ -78,17 +115,27 @@ class LinesPlotter:
             fig, ax = plt.subplots()
         self.calculate_summary(func)
         for var_name in var_name_list:
-            data = self.get_var_from_summary(var_name)[0]
-
-            data = np.pad(data, (window_size // 2, window_size - 1 - window_size // 2), mode='edge')
-            data = np.convolve(data, np.ones((window_size,)) / window_size, mode='valid')
 
             label = var_name if label is None else label
+
+            data = self.get_var_from_summary(var_name)[0]
+            data = self.convolve(data, window_size)
 
             if linestyle is None:
                 ax.plot(range(self.num_episodes), data, label=label)
             else:
                 ax.plot(range(self.num_episodes), data, label=label, linestyle=linestyle)
+
+            # grafica la desviacion estandar si es un promedio
+            if self.std_dev_top is not None and self.std_dev_bottom is not None:
+                top = self.get_var_from_array(var_name, self.std_dev_top)[0]
+                top = self.convolve(top, window_size)
+                bottom = self.get_var_from_array(var_name, self.std_dev_bottom)[0]
+                bottom = self.convolve(bottom, window_size)
+                ax.fill_between(range(self.num_episodes), bottom, top, alpha=0.25)
+
+
+
 
         return fig, ax
 
@@ -185,4 +232,6 @@ class LinesPlotter:
 
         plotter = LinesPlotter(var_name_list, num_experiments, num_episodes)
         plotter.data = data
+        print('Data loaded. Shape:')
+        print(data.shape)
         return plotter

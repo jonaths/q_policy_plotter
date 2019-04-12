@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe70031a-6a93-4091-adda-1f66564525e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/data.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample_load_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/data.npy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plotters/line_plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotters/line_plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plotters/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotters/plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample_load_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/sample_load_data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,32 +39,14 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/sample_load_data.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="135">
-                  <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+                  <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="3" selection-start-column="3" selection-end-column="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/requirements.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -76,8 +58,20 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/plotters/line_plotter.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="795">
-                  <caret line="92" column="22" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
+                <state relative-caret-position="-345">
+                  <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/plotters/plotter.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="394">
+                  <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -107,22 +101,22 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plotters/plotter.py" />
         <option value="$PROJECT_DIR$/plotters/helpers.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/plotters/history.py" />
         <option value="$PROJECT_DIR$/examples/load_data.py" />
-        <option value="$PROJECT_DIR$/plotters/line_plotter.py" />
-        <option value="$PROJECT_DIR$/sample_load_data.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/plotters/plotter.py" />
+        <option value="$PROJECT_DIR$/sample_load_data.py" />
+        <option value="$PROJECT_DIR$/plotters/line_plotter.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1366" />
-    <option name="y" value="25" />
-    <option name="width" value="1920" />
-    <option name="height" value="1055" />
+    <option name="y" value="268" />
+    <option name="width" value="1356" />
+    <option name="height" value="555" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -170,6 +164,7 @@
       <recent name="$PROJECT_DIR$/examples" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -203,12 +198,12 @@
       <workItem from="1550174755966" duration="21000" />
       <workItem from="1550868254032" duration="836000" />
       <workItem from="1550985223491" duration="180000" />
-      <workItem from="1555101359166" duration="1855000" />
+      <workItem from="1555101359166" duration="9525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20973000" />
+    <option name="totallyTimeSpent" value="28643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="25" width="1920" height="1055" extended-state="6" />
@@ -243,16 +238,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/filename.png" />
     <entry file="file://$PROJECT_DIR$/heatmap.png" />
-    <entry file="file://$PROJECT_DIR$/plotters/plotter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="75" column="16" lean-forward="true" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plotters/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="559">
@@ -280,26 +265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plotters/line_plotter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="92" column="22" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample_load_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -309,8 +274,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="17" />
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotters/plotter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_load_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotters/line_plotter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
